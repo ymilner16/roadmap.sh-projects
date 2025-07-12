@@ -4,7 +4,7 @@ echo "Server Info Utility"
 echo "==================="
 echo "\n"
 echo "CPU usage:"
-top -b -n 1 | grep %Cpu | awk '{print 100 - $8"%"}'
+top -b -n 1 | grep %Cpu | awk '{gsub(/,/, ", ");print 100 - $8}'
 echo "\n"
 echo "Memory usage:"
 free -h | awk 'NR==2 {print "Free Mem: "$7", Used Mem: "$3" Usage percent: "$3/$2*100"%"}'
